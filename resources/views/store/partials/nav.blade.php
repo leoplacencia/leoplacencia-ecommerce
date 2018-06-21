@@ -24,7 +24,33 @@
                   <i class="fa fa-user"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Iniciar Sesión</a>
+                    @guest
+                        
+                            <a class="dropdown-item" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                        
+                        
+                            <a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrar') }}</a>
+                        
+                    @else
+                        
+                            <a class="dropdown-item" href="#" role="button" >
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                           
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar Sesión') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                        
+                      
+                    @endguest
+                 
                   
                 </div>
               </li>
