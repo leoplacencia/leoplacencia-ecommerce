@@ -14,7 +14,7 @@
             <p>{{ $product->description }}</p>
             <p>Precio: ${{ number_format($product->price,2) }}</p>
             <p>
-                <a href="#">Add to cart</a>
+                <a class="btn btn-lg btn-block btn-outline-primary" href="{{ route('cart-add', $product->slug) }}">Add to cart</a>
             </p>
         </div>
     </div>

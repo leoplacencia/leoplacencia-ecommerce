@@ -14,8 +14,8 @@
             <li>{{ $product->extract }}</li>
             <li>Precio: ${{ number_format($product->price,2) }}</li>
         </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
-        <a class="btn btn-lg btn-block btn-outline-primary" href="{{ route('product-detail', $product->id) }}">Detalle</a>
+        <a class="btn btn-lg btn-block btn-outline-primary" href="{{ route('cart-add', $product->slug) }}">Add to cart</a>
+        <a class="btn btn-lg btn-block btn-outline-primary" href="{{ route('product-detail', $product->slug) }}">Detalle</a>
         </div>
     </div>
     @endforeach

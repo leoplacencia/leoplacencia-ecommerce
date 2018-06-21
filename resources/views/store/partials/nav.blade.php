@@ -11,7 +11,7 @@
             <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>
+            <a class="nav-link" href="{{ route('cart-show') }}"><i class="fa fa-shopping-cart"></i></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Conocenos</a>
