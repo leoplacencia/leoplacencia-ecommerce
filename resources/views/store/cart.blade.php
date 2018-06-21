@@ -51,15 +51,18 @@
         <h3 class="label label-warning">El carrito se encuentra vacío</h3>
     @endif
     <hr>
+    
     <p>
         <a href="{{ route('home') }}" class="btn btn-primary">
             <i class="fa fa-chevron-circle-left"></i>Seguir comprando
         </a>
-        <a href="#" class="btn btn-primary">
+        @if(count($cart))
+        <a href="{{ route('order-detail') }}" class="btn btn-primary">
                 Continuar<i class="fa fa-chevron-circle-right"></i>
         </a>
+        @endif
     </p>
-
+    
 </div>
 
 

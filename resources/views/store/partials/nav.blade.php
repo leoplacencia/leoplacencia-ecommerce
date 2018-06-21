@@ -20,22 +20,23 @@
             <a class="nav-link" href="#">Contacto</a>
         </li>
         <li class="nav-item dropdown dropleft">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-user"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
                     @guest
-                        
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
                         
                         
                             <a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrar') }}</a>
                         
                     @else
-                        
-                            <a class="dropdown-item" href="#" role="button" >
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user">&nbsp;{{ Auth::user()->name }} <span class="caret"></span></i>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
 
                            
                                 <a class="dropdown-item" href="{{ route('logout') }}"
