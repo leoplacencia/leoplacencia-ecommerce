@@ -46,7 +46,7 @@
         <p>
             <a href="{{ route('cart-show') }}" class="btn btn-primary">Regresar</a>
         
-            <a href="" class="btn btn-primary">Pagar</a>
+            <a href="{{ route('pay') }}" class="btn btn-primary">Pagar</a>
         </p>
     </div>
 </div>

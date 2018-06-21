@@ -55,4 +55,12 @@ Route::get('order-detail', [
     'as' => 'order-detail',
     'uses' => 'CartController@orderDetail'
 ]);
+Route::get('pay', [
+    'middleware' => 'auth',
+    'as' => 'pay',
+    'uses' => 'PayController@pago'
+]);
 Auth::routes();
+
+//admin
+Route::resource('admin/category', 'Admin\CategoryController');
