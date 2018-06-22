@@ -14,6 +14,10 @@
 Route::bind('product', function($slug){
     return App\Product::where('slug',$slug)->first();
 });
+// Category dependency injection
+Route::bind('category', function($category){
+    return App\Category::find($category);
+});
 
 Route::get('/',[
     'as' => 'home',

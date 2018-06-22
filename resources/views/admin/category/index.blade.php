@@ -5,7 +5,7 @@
             <h1>Categorias
 
             </h1>
-            <a href="" class="btn btn-warning">Agregar</a>
+            <a href="{{ route('category.create') }}" class="btn btn-warning">Agregar</a>
             <br>
         </div>
         <hr>

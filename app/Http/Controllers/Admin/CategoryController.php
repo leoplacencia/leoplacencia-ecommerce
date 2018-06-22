@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -38,7 +38,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|unique:categories|max:255',
+            'color'=>'required',
+        ]);
+        $category = Category::create([
+            'name'=> $request->get('name'),
+            'slug'=> str_slug($request->get('name')),
+            'description' => $request->get('description'),
+            'color'=> $request->get('color')
+        ]);
+
+        $message = $category ? 'Categoría agregada correctamente!': 'Error al agregar categoría';
+
+        return redirect()->route('category.index')->with('message', $message);
     }
 
     /**
@@ -47,7 +60,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
         //
     }
@@ -58,7 +71,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
         //
     }
@@ -70,7 +83,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $category)
     {
         //
     }
@@ -81,7 +94,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
     }
