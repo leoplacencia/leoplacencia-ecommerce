@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
 			$table->string('slug')->nullable();
 			$table->text('description')->nullable();
 			$table->string('extract', 300)->nullable();
-			$table->decimal('price', 5, 2)->nullable();
+			$table->decimal('price', 13, 2)->nullable();
 			$table->string('image', 300)->nullable();
 			$table->boolean('visible')->nullable();
 			$table->integer('category_id')->unsigned();

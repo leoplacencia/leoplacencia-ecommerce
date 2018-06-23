@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('id', 'desc')->paginate(5);
         //dd($categories);
         return view('admin.category.index', compact('categories'));
     }
@@ -62,7 +62,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return $category;
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -83,9 +83,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $category)
+    public function update(Request $request,Category $category)
     {
-        //
+        $category->fill($request->all());
+        $category->slug = str_slug($request->get('name'));
+        $updated = $category->save();
+
+        $message = $updated ? 'Categoría actualizada correctamente' : 'La categoría no pudo actualizarse!';
+        
+        return redirect()->route('category.index')->with('message', $message);
     }
 
     /**
@@ -96,6 +102,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
-    }
+        $deleted = $category->delete();
+        $message = $deleted ? 'Categoría eliminada correctamente' : 'La categoría no se pudo eliminar!';
+        return redirect()->route('category.index')->with('message', $message);    }
 }

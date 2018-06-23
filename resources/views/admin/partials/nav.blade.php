@@ -10,19 +10,19 @@
         
         
         <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="{{ url('/admin/home') }}">Dashboard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Categorias</a>
+            <a class="nav-link" href="{{ url('/admin/category') }}">Categorias</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Productos</a>
+            <a class="nav-link" href="{{ url('/admin/product') }}">Productos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Pedidos</a>
+            <a class="nav-link" href="{{ url('/admin/home') }}">Pedidos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Usuarios</a>
+            <a class="nav-link" href="{{ url('/admin/home') }}">Usuarios</a>
         </li>
         <li class="nav-item dropdown dropleft">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

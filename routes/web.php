@@ -67,4 +67,8 @@ Route::get('pay', [
 Auth::routes();
 
 //admin
+Route::get('admin/home', function(){
+    return view('admin.home');
+});
 Route::resource('admin/category', 'Admin\CategoryController');
+Route::resource('admin/product', 'Admin\ProductController');

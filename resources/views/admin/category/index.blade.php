@@ -23,9 +23,13 @@
                 <tbody>
                     @foreach($categories as $category)
                     <tr>
-                        <td><a href="" class="btn btn-primary"><i class="fa fa-pencil-square"></i></a></td>
-                        <td><a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
-                        <td>{{ $category->name }}</td>
+                        <td><a href="{{ route('category.edit', $category) }}" class="btn btn-primary"><i class="fa fa-pencil-square"></i></a></td>
+                        <td>
+                            {!! Form::open(['route'=>['category.destroy', $category]]) !!}
+                            <input name="_method" value="DELETE" type="hidden">
+                                <button onClick="return confirm('Desea eliminar el registro?')" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            {!! Form::close() !!}
+                            <td>{{ $category->name }}</td>
                         <td>{{ $category->description }}</td>
                         <td>{{ $category->color }}</td>
                     </tr>
@@ -34,7 +38,10 @@
                 
             </table>
         </div>
+         @if(count($category)>4)
+            {{  $category->links() }}
+        @endif
+        
     </div>
-
     
 @stop

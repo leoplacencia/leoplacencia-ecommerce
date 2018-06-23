@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('subtotal', 10, 2);
-            $table->decimal('shipping', 10,2);
+            $table->decimal('subtotal', 13, 2);
+            $table->decimal('shipping', 13,2);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                   ->references('id')
